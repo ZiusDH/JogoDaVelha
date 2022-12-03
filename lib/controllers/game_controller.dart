@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:jogo_da_velha/core/constants.dart';
 import 'package:jogo_da_velha/core/winner_rules.dart';
@@ -40,5 +42,36 @@ class GameController {
       _markBoardTileWithPlayer2(tile);
     }
     tile.enable = false;
+  }
+
+  void _markBoardTileWithPlayer1(BoardTile tile) {
+    tile.symbol = PLAYER1_SYMBOL;
+    tile.color = PLAYER1_COLOR;
+    movesPlayer1.add(tile.id);
+    currentPlayer = PlayerType.player2;
+  }
+
+  void _markBoardTileWithPlayer2(BoardTile tile) {
+    tile.symbol = PLAYER2_SYMBOL;
+    tile.color = PLAYER2_COLOR;
+    movesPlayer2.add(tile.id);
+    currentPlayer = PlayerType.player1;
+  }
+
+  bool _checkPlayerWinner(List<int> moves) {
+    return winnerRules.any((rule) =>
+        moves.contains(rule[0]) &&
+        moves.contains(rule[1]) &&
+        moves.contains(rule[2]));
+  }
+
+  int automaticMove() {
+    var list = new List.generate(9, (i) => i + 1);
+    list.removeWhere((element) => movesPlayer1.contains(element));
+    list.removeWhere((element) => movesPlayer2.contains(element));
+
+    var random = new Random();
+    var index = random.nextInt(list.length - 1);
+    return tiles.indexWhere((tile) => tile.id == list[index]);
   }
 }
