@@ -74,11 +74,15 @@ class _GamePageState extends State<GamePage> {
       onTap: () => _onMarkTile(index),
       child: Container(
         color: _controller.tiles[index].color,
-
-        /* style: TextStyle(
-          fontSize: 72,
-          color: Colors.white,
-        ),*/
+        child: Center(
+          child: Text(
+            _controller.tiles[index].symbol,
+            style: TextStyle(
+              fontSize: 72,
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }
