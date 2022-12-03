@@ -10,8 +10,8 @@ const String PLAYER2_SYMBOL = 'O';
 
 const String GAME_TITLE = 'JOGO DA VELHA';
 const String TIED_TITLE = 'VELHOU!';
-const String WIN_TITLE = 'Player[SYMBOL] Ganhou';
-const String DIALOG_MESSAGE = 'Aerte o botão de RESET para jogar novamnete!';
+const String WIN_TITLE = 'Player [SYMBOL] Ganhou';
+const String DIALOG_MESSAGE = 'Aperte o botão de RESET para jogar novamente!';
 const String SINGLE_PLAYER_MODE_LABEL = 'Um Jogador';
 const String MULTIPLAYER_MODE_LABEL = 'Dois Jogadores';
 const String RESET_BUTTON_LABEL = 'RESET';

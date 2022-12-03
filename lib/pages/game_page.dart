@@ -46,7 +46,9 @@ class _GamePageState extends State<GamePage> {
 
   _buildResetButton() {
     return ElevatedButton(
-      padding: const EdgeInsets.all(20),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.all(20),
+      ),
       child: Text(RESET_BUTTON_LABEL),
       onPressed: _onResetGame,
     );
@@ -72,10 +74,11 @@ class _GamePageState extends State<GamePage> {
       onTap: () => _onMarkTile(index),
       child: Container(
         color: _controller.tiles[index].color,
-        style: TextStyle(
+
+        /* style: TextStyle(
           fontSize: 72,
           color: Colors.white,
-        ),
+        ),*/
       ),
     );
   }
@@ -145,7 +148,7 @@ class _GamePageState extends State<GamePage> {
       title: Text(_controller.isSinglePlayer ? 'UM JOGADOR' : 'DOIS JOGADORES'),
       secondary: Icon(_controller.isSinglePlayer ? Icons.person : Icons.group),
       value: _controller.isSinglePlayer,
-      onChanged: ((value) {
+      onChanged: (value) {
         setState(() {
           _controller.isSinglePlayer = value;
         });

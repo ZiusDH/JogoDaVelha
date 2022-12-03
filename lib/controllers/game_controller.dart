@@ -11,8 +11,8 @@ class GameController {
   List<BoardTile> tiles = [];
   List<int> movesPlayer1 = [];
   List<int> movesPlayer2 = [];
-  PlayerType currentPlayer;
-  bool isSinglePlayer;
+  PlayerType currentPlayer = PlayerType.player1;
+  bool isSinglePlayer = true;
 
   bool get hasMoves =>
       (movesPlayer1.length + movesPlayer2.length) != BOARD_SIZE;
