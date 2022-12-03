@@ -65,6 +65,12 @@ class GameController {
         moves.contains(rule[2]));
   }
 
+  WinnerType checkWinner() {
+    if (_checkPlayerWinner(movesPlayer1)) return WinnerType.player1;
+    if (_checkPlayerWinner(movesPlayer2)) return WinnerType.player2;
+    return WinnerType.none;
+  }
+
   int automaticMove() {
     var list = new List.generate(9, (i) => i + 1);
     list.removeWhere((element) => movesPlayer1.contains(element));
